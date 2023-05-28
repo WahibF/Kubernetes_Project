@@ -1,7 +1,10 @@
 FROM centos:latest
 LABEL MAINTAINER="wahibx@gmail.com"
 
-RUN yum install -y httpd \
+RUN yum update -y \
+    && yum install -y epel-release \
+    && yum update -y \
+    && yum install -y httpd \
     && yum install -y zip \
     && yum install -y unzip \
     && yum clean all
@@ -20,8 +23,9 @@ EXPOSE 80 22
 
 
 
+
 # FROM  centos:latest
-# MAINTAINER vikashashoke@gmail.com
+# MAINTAINER wahibx@gmail.com
 # RUN yum install -y httpd \
 #  zip\
 #  unzip
