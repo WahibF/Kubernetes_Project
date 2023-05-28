@@ -1,7 +1,8 @@
 FROM centos:latest
 LABEL MAINTAINER="wahibx@gmail.com"
 
-RUN yum update -y \
+RUN sed -i '/appstream/s/enabled=1/enabled=0/' /etc/yum.repos.d/CentOS-Linux-AppStream.repo \
+    && yum update -y \
     && yum install -y epel-release \
     && yum update -y \
     && yum install -y httpd \
@@ -20,6 +21,7 @@ RUN unzip photogenic.zip \
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
 EXPOSE 80 22
+
 
 
 
