@@ -10,7 +10,7 @@ RUN yum update -y \
     && yum clean all
 
 RUN sed -i '/appstream/s/enabled=1/enabled=0/' /etc/yum.repos.d/CentOS-Linux-AppStream.repo \
-    && yum update -y --disablerepo=appstream \
+    && yum update -y --exclude=centos-linux-appstream \
     && yum clean all
 
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
