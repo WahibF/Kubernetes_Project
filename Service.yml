@@ -4,6 +4,7 @@ metadata:
   name: wahib
   labels:
     app: wahib
+    
 spec:
   ports:
     - port: 8080                               
